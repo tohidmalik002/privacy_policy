@@ -1,0 +1,20 @@
+{
+ "content": null,
+ "creation": "2024-11-30 13:06:24.788676",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2024-11-30 13:06:24.788676",
+ "modified_by": "Administrator",
+ "module": "Privacy Policy",
+ "name": "privacy-policy",
+ "owner": "Administrator",
+ "page_name": "privacy-policy",
+ "restrict_to_domain": "http://127.0.0.1:8000/",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Privacy Policy"
+}

@@ -83,12 +83,14 @@ app_license = "mit"
 # ------------
 
 # before_install = "privacy_policy.install.before_install"
-# after_install = "privacy_policy.install.after_install"
+after_install = "privacy_policy.install.after_install"
+after_migrate = "privacy_policy.install.after_install"
+
 
 # Uninstallation
 # ------------
 
-# before_uninstall = "privacy_policy.uninstall.before_uninstall"
+before_uninstall = "privacy_policy.uninstall.before_uninstall"
 # after_uninstall = "privacy_policy.uninstall.after_uninstall"
 
 # Integration Setup

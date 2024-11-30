@@ -1,0 +1,89 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-30 14:24:55.306194",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "query_type",
+  "column_break_rhvs",
+  "status",
+  "section_break_o7sn",
+  "query",
+  "response",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "query_type",
+   "fieldtype": "Select",
+   "label": "Query Type",
+   "options": "Payroll\nOnboarding"
+  },
+  {
+   "fieldname": "query",
+   "fieldtype": "Long Text",
+   "label": "Query"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "response",
+   "fieldtype": "Long Text",
+   "hidden": 1,
+   "label": "Response",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nPending\nResolved\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Help Desk",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_rhvs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_o7sn",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-11-30 15:38:34.951032",
+ "modified_by": "Administrator",
+ "module": "Privacy Policy",
+ "name": "Help Desk",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
