@@ -130,6 +130,31 @@ def insert_privacy_policy_in_home_workspace():
         })
         doc.save()
 
+def set_system_notification_for_help_desk():
+    if not frappe.db.exists("Notification", "Help Desk"):
+            doc = {
+                "name": 'Help Desk',
+                "doctype": "Notification",
+                "enabled": 1,
+                "channel": "System Notification",
+                "subject": "Query Update",
+                "event": "Value Change",
+                "document_type": "Help Desk",
+                "value_changed": "status",
+                "send_system_notification": 1,
+                "condition": "doc.status == \"Resolved\" or doc.status == \"Cancelled\"",
+                "send_to_all_assignees": 0,
+                "doctype": "Notification",
+                "recipients": [
+                    {
+                        "receiver_by_document_field": "owner",
+                    }
+                ],
+            }
+            frappe.get_doc(doc).insert()
+
 def remove_fixtures():
     if frappe.db.exists("Workflow", "Help Desk"):
         frappe.delete_doc("Workflow", "Help Desk")
+    if frappe.db.exists("Notification", "Help Desk"):
+        frappe.delete_doc("Notification", "Help Desk")

@@ -37,7 +37,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-12-01 01:22:33.449901",
+ "modified": "2024-12-01 21:48:19.428448",
  "modified_by": "Administrator",
  "module": "Privacy Policy",
  "name": "Company Privacy Policy",
@@ -52,6 +52,10 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "read": 1,
+   "role": "All"
   }
  ],
  "sort_field": "modified",
