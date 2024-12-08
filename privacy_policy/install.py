@@ -66,6 +66,7 @@ def get_custom_fields():
         ]
     }
 
+
 def delete_custom_fields(custom_fields: dict):
 	for doctype, fields in custom_fields.items():
 		frappe.db.delete(
