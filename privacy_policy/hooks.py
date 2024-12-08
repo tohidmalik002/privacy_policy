@@ -139,13 +139,11 @@ before_uninstall = "privacy_policy.uninstall.before_uninstall"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"File": {
+		"after_insert": "privacy_policy.privacy_policy.customization.file.file.after_insert",
+	}
+}
 
 # Scheduled Tasks
 # ---------------

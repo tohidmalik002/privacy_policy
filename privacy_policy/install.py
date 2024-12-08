@@ -1,15 +1,82 @@
 from frappe.desk.page.setup_wizard.setup_wizard import make_records
 import frappe
+from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
 
 
 def after_install():
     print("Creating/Updating Fixtures for Privacy Policy")
+    create_custom_fields(get_custom_fields(), ignore_validate=True)
     make_fixtures()
     insert_privacy_policy_in_home_workspace()
 
 def before_unsintall():
     remove_fixtures()
+    delete_custom_fields(get_custom_fields())
 
+
+
+def get_custom_fields():
+    return {
+		"Employee": [
+			{
+				"fieldname": "documents_tab",
+				"fieldtype": "Tab Break",
+				"label": "Documents",
+				"insert_after": "internal_work_history",
+			},
+			{
+				"fieldname": "aadhar_card",
+				"fieldtype": "Attach",
+				"label": "Aadhar Card",
+				"insert_after": "documents_tab",
+			},
+            {
+				"fieldname": "results",
+				"fieldtype": "Attach",
+				"label": "Results",
+				"insert_after": "column_break_epbgu",
+			},
+            {
+				"fieldname": "column_break_epbgu",
+				"fieldtype": "Column Break",
+				"insert_after": "pan_card",
+			}, 
+            {
+				"fieldname": "pan_card",
+				"fieldtype": "Attach",
+				"label": "Pan Card",
+				"insert_after": "aadhar_card",
+			}    
+        ],
+        "File": [
+			{
+				"fieldname": "google_drive_backup",
+				"fieldtype": "Check",
+				"label": "Google Drive Backup",
+				"insert_after": "attached_to_doctype",
+                "read_only": 1
+			},
+			{
+				"fieldname": "google_drive_file_id",
+				"fieldtype": "Data",
+				"label": "Google Drive File ID",
+				"insert_after": "google_drive_backup",
+                "read_only": 1
+			}     
+        ]
+    }
+
+def delete_custom_fields(custom_fields: dict):
+	for doctype, fields in custom_fields.items():
+		frappe.db.delete(
+			"Custom Field",
+			{
+				"fieldname": ("in", [field["fieldname"] for field in fields]),
+				"dt": doctype,
+			},
+		)
+
+		frappe.clear_cache(doctype=doctype)
 
 def make_fixtures():
 	records = [
